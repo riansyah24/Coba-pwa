@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>PWA</title>
+        <link rel="manifest" href="manifest.json" />
+    <title>PWA</title>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then(function (registration) {
+            console.log(
+              "Service worker terdaftar dengan skop: ",
+              registration.scope
+            );
+          })
+          .catch(function (error) {
+            console.log("Service worker gagal terdaftar: ", error);
+          });
+      } else {
+        console.log("Browser tidak mendukung service worker");
+      }
+    </script>
   </head>
   <body>
     <h1>PWA HARUS BISA !!!</h1>
